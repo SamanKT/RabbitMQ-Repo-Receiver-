@@ -1,0 +1,30 @@
+version : '3.8'
+services:
+  sender-service:
+    build:
+      context: https://github.com/SamanKT/RabbitMQ-Repo-Sender.git
+      dockerfile: Dockerfile
+    ports:
+      - '8080:8080'
+    environment:
+      RABBITHOST: rabbitmq
+    depends_on:
+      - rabbitmq
+      
+  receiver-service:
+    build:
+      context: https://github.com/SamanKT/RabbitMQ-Repo-Receiver-.git
+      dockerfile: Dockerfile
+    ports:
+      - '8081:8081'
+    environment:
+      RABBITHOST: rabbitmq
+    depends_on:
+      - rabbitmq
+    
+  rabbitmq:
+    image: rabbitmq:3.9.27-management
+    ports:
+      - '5672:5672'
+      - '15672:15672'
+    
