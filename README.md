@@ -1,6 +1,6 @@
 # RabbitMQ-Repo-Receiver
 
-This is a reciever service for consuming the published messages that is sent by RabbitMQ-Repo-Sender service. 
+This is a reciever service for consuming the published messages that is sent by [RabbitMQ-Repo-Sender](https://github.com/SamanKT/RabbitMQ-Repo-Sender) service. 
 
 ### Project features:
 
