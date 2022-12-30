@@ -1,9 +1,9 @@
 FROM maven:3.8.3-openjdk-17 as build-maven
 WORKDIR /maven
-COPY pom.xml .
-RUN mvn dependency:go-offline -B
-COPY src src
-RUN mvn install -DskipTests
+COPY rabbitmq-microservice-receiver/pom.xml .
+RUN cd rabbitmq-microservice-receiver && mvn dependency:go-offline -B
+COPY rabbitmq-microservice-receiver/src src
+RUN cd rabbitmq-microservice-receiver && mvn install -DskipTests
 
 
 FROM openjdk:17
